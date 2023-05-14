@@ -12,7 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @Configuration
 public class WebConfig {
  
- @Bean(name = "db1")
+ @Bean(name = "database1")
  @ConfigurationProperties(prefix = "spring.datasource")
  public DataSource dataSource1() {
 	 System.err.println("db1");
@@ -20,12 +20,12 @@ public class WebConfig {
  }
 
  @Bean(name = "jdbcTemplate1")
- public JdbcTemplate jdbcTemplate1(@Qualifier("db1") DataSource ds) {
+ public JdbcTemplate jdbcTemplate1(@Qualifier("database1") DataSource ds) {
 	 System.err.println(ds);
   return new JdbcTemplate(ds);
  }
  
- @Bean(name = "db2")
+ @Bean(name = "database2")
  @ConfigurationProperties(
 		 prefix = "spring.second-db")
  public DataSource dataSource2() {
@@ -34,7 +34,7 @@ public class WebConfig {
  }
 
  @Bean(name = "jdbcTemplate2")
- public JdbcTemplate jdbcTemplate2(@Qualifier("db2") DataSource ds) {
+ public JdbcTemplate jdbcTemplate2(@Qualifier("database2") DataSource ds) {
 	 System.err.println(ds);
   return new JdbcTemplate(ds);
  }

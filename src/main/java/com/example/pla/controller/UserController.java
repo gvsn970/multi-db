@@ -19,7 +19,7 @@ public class UserController {
 
 	@GetMapping
 	public String  getAllUsers() {
-		List<User> usersList = userService.getAllUser();
+		List<User> usersList =  userService.getAllUser();
 
 		System.err.println(usersList.size());
 		return "surya";
